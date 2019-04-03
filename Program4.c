@@ -20,22 +20,23 @@ int main(){
     /*Declare an integer n and assign it a value.*/
     int n=10;
     /*Allocate memory for n stud using malloc.*/
-    int* stud= (int) malloc(n* sizeof(int));
+    struct student* stud= malloc(n* sizeof(struct student));
+		int i, x;
     /*Generate random IDs and scores for the n stud, using rand().*/
-    for(int i=0; i<n; i++){
-      stud[i].initials[0]= (char) rand()%26 + 65;
-      stud[i].initials[0]= (char) rand()%26 + 65;
+    for(i=0; i<n; i++){
+      stud[i].initials[0]= rand()%26 + 'A';
+      stud[i].initials[1]= rand()%26 + 'A';
       stud[i].score= rand()%101;
     }
     /*Print the contents of the array of n stud.*/
-    for(int i=0; i<n; i++){
+    for(i=0; i<n; i++){
       x=i+1;
       printf("%d. %c%c %d\n", x, stud[i].initials[0], stud[i].initials[1], stud[i].score);
     }
     /*Pass this array along with n to the sort() function*/
     sort(stud, n);
     /*Print the contents of the array of n stud.*/
-    for(int i=0; i<n; i++){
+    for(i=0; i<n; i++){
       x=i+1;
       printf("%d. %c%c %d\n", x, stud[i].initials[0], stud[i].initials[1], stud[i].score);
     }

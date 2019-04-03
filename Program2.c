@@ -15,7 +15,7 @@ struct student{
 
 struct student* allocate(){
      /*Allocate memory for ten students*/
-     student* st= (student*)malloc(10 * sizeof(student));
+     struct student* st= malloc(10 * sizeof(struct student));
      /*return the pointer*/
      return st;
 }
@@ -24,9 +24,10 @@ void generate(struct student* students){
      /*Generate random initials and scores for ten students.
 	The two initial letters must be capital and must be between A and Z.
 	The scores must be between 0 and 100*/
-  for(int i=0; i<10; i++){
-    students[i].initials[0]= (char) rand()%26 + 65;
-    students[i].initials[0]= (char) rand()%26 + 65;
+	int i;
+  for(i=0; i<10; i++){
+    students[i].initials[0]= rand()%26 + 'A';
+    students[i].initials[1]= rand()%26 + 'A';
     students[i].score= rand()%101;
   }
 
@@ -38,8 +39,8 @@ void output(struct student* students){
               2. Initials  Score
               ...
               10. Initials Score*/
-              int x=0;
-    for(int i=0; i<10; i++){
+    int x=0, i;
+    for(i=0; i<10; i++){
       x=i+1;
       printf("%d. %c%c %d\n", x, students[i].initials[0], students[i].initials[1], students[i].score);
     }
@@ -48,8 +49,8 @@ void output(struct student* students){
 void summary(struct student* students){
      /*Compute and print the minimum, maximum and average scores of the ten students*/
      int min=101, max=-1, average;
-
-     for(int i=0; i<10; i++){
+		 int i;
+     for(i=0; i<10; i++){
       if(students[i].score >max)
         max= students[i].score;
       if(students[i].score <min)
