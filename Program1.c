@@ -11,20 +11,20 @@ int foo(int* a, int* b, int c){
     /* Increment a */
     *a++;
     /* Decrement  b */
-    b--;
+    *b--;
     /* Assign a-b to c */
-    c=*a-b;
+    c=*a-*b;
     /* Return c */
     return c;
 }
 
 int main(){
     /* Declare three integers x,y and z and initialize them randomly to values in [0,10] */
-    int x= rand()%10, y= rand()%10, z= rand()%10;
+    int x= rand()%11, y= rand()%11, z= rand()%11;
     /* Print the values of x, y and z */
     printf("x is %d, y is %d, z is %d", x, y, z);
     /* Call foo() appropriately, passing x,y,z as parameters */
-    int a= foo(x,y,z);
+    int a= foo(&x,&y,z);
     /* Print the values of x, y and z */
     printf("x is %d, y is %d, z is %d", x, y, z);
     /* Print the value returned by foo */
