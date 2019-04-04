@@ -14,6 +14,8 @@ struct student{
 
 void sort(struct student* stud, int n){
      /*Sort n studdents based on their initials*/
+		 if(n==0)
+		 	return;
 		 struct student temp;
 		 int i, j;
 		 for(i=0; i<n-1; i++){
