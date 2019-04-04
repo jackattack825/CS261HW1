@@ -14,6 +14,24 @@ struct student{
 
 void sort(struct student* stud, int n){
      /*Sort n studdents based on their initials*/
+		 struct student temp;
+		 int i, j;
+		 for(i=0; i<n-1; i++){
+			 for(j=0; j<n-1; j++){
+				 if(stud[j].initials[0] > stud[j+1].initials[0]){
+					 temp= stud[j];
+					 stud[j]= stud[j+1];
+					 stud[j+1]=temp;
+				 }
+				 else if(stud[j].initials[0] == stud[j+1].initials[0]){
+					 if(stud[j].initials[1] > stud[j+1].initials[1]){
+						 temp= stud[j];
+						 stud[j]= stud[j+1];
+						 stud[j+1]=temp;
+					 }
+				 }
+			 }
+		 }
 }
 
 int main(){
